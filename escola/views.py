@@ -29,6 +29,7 @@ class MatriculaViewSet(viewsets.ModelViewSet):
     queryset = Matricula.objects.all().order_by('id')
     serializer_class = MatriculaSerializer
     throttle_classes = [UserRateThrottle, MatricutaAnonRateThrottle]
+    http_method_names =  ["get", "post"]
 
 class ListaMatriculasEstudante(generics.ListAPIView):
     def get_queryset(self):
