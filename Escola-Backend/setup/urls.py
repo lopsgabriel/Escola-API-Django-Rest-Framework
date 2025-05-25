@@ -5,6 +5,7 @@ from rest_framework import routers
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+#documentação
 schema_view = get_schema_view(
    openapi.Info(
       title="Documentação da API",
@@ -26,6 +27,8 @@ urlpatterns = [
     path('', include(router.urls)),
     path('estudantes/<int:pk>/matriculas/', ListaMatriculasEstudante.as_view()),
     path('cursos/<int:pk>/matriculas/', ListaMatriculasCurso.as_view()), 
+
+    #documentação
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0),
     name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0),
